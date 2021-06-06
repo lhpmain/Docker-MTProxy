@@ -6,7 +6,7 @@ RUN pip3 install --no-cache-dir --upgrade requests==2.19              && \
     mkdir /build                                                      && \
     cd /build                                                         && \
     git clone https://github.com/lhpmain/MTProxy .                    && \
-    git reset --hard 1a6fee3d4ff2f7817dd79689fd243280c794c373         && \
+    git reset --hard dc0c7f3de40530053189c572936ae4fd1567269b         && \
     make                                                              && \
     mkdir /server                                                     && \
     cp /build/objs/bin/* /server                                      && \
