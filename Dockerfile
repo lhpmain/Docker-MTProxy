@@ -5,7 +5,7 @@ RUN pip3 install --no-cache-dir --upgrade requests==2.19              && \
     apt-get install -y git build-essential libssl-dev zlib1g-dev curl && \
     mkdir /build                                                      && \
     cd /build                                                         && \
-    git clone https://github.com/lhpmain/MTProxy-1 .                  && \
+    git clone https://github.com/lhpmain/MTProxy .                    && \
     git reset --hard dc0c7f3de40530053189c572936ae4fd1567269b         && \
     make                                                              && \
     mkdir /server                                                     && \
