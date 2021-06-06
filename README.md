@@ -30,8 +30,15 @@ To see the logs: `docker logs --follow mtproxy`.
 
 To collect server stats: `docker exec mtproxy curl http://localhost:[port_stats]/stats`
 
+You must create a configuration file /etc/mtproxy/configuration.json in host at first:
+
+$ mkdir -p /etc/mtproxy
+
+A sample in JSON like below:
+
 Example Configuration:
 ```
+cat > /etc/mtproxy/configuration.json <<EOF
 {
   "keys": [],
   "new_keys": 1,
@@ -43,4 +50,12 @@ Example Configuration:
   "port_stats": 80,
   "tag": ""
 }
+EOF
 ```
+
+
+There is an example to start a container that listen on port 4000, run as a mtproxy server like below:
+
+$ docker run -d -p 4000:4000 --name mtproxy --restart=always -v /etc/mtproxy/configuration.json:/configuration.json lhpmain/mtproxy
+
+To see the logs: docker logs --follow mtproxy.
